@@ -27,7 +27,7 @@ withdraw acc amount = do
 
 limitedWithdraw :: Account -> Account -> Int -> STM ()
 limitedWithdraw acc1 acc2 amt =
-  withdraw acc2 amt `orElse` withdraw acc2 amt
+  withdraw acc1 amt `orElse` withdraw acc2 amt
 
 delayDeposit :: Name -> Account -> Int -> IO ()
 delayDeposit name acc amount = do
